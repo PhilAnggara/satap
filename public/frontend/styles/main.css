@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 /*==============================================================
 	Common Styles Initials
 ==============================================================*/
@@ -9,6 +11,29 @@
 /*==============================================================
 	Global Styles Start
 ==============================================================*/
+.app-logo img {
+  height: 70px !important;
+}
+.app-logo .logo-text {
+  margin-left: 10px;
+}
+.app-logo .logo-text .top-text {
+  font-family: "Fredoka One", cursive;
+  font-size: 40px;
+  font-weight: 100;
+  color: #0092DE;
+  margin-bottom: -20px;
+}
+.app-logo .logo-text .bot-text {
+  font-family: "Poiret One", cursive;
+  font-size: 26px;
+  text-align: center;
+}
+
+.app-logo-alt img {
+  height: 40px !important;
+}
+
 /*==============================================================
 	Global Styles End
 ==============================================================*/

@@ -14,21 +14,16 @@
 </head>
 <body>
 
-  <div id="app">
-    @include('includes.sidebar')
-    <div id="main" class='layout-navbar'>
-      @include('includes.navbar')
-      <div id="main-content">
-        @yield('content')
-        @include('includes.footer')
-      </div>
+  <nav class="navbar navbar-light">
+    <div class="container d-block">
+      <a href="{{ route('dashboard') }}"><i class="bi bi-chevron-left"></i></a>
+      <a class="app-logo-alt navbar-brand ms-4" href="{{ route('dashboard') }}">
+        <img src="{{ url('frontend/images/logo-alt.png') }}">
+      </a>
     </div>
-  </div>
-
-  @stack('prepend-script')
-  @include('includes.script')
-  @livewireScripts
-  @stack('addon-script')
+  </nav>
+  
+  @yield('content')
 
 </body>
 </html>

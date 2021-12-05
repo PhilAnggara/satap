@@ -11,7 +11,31 @@
 /*==============================================================
 	Global Styles Start
 ==============================================================*/
-
+.app-logo {
+	img {
+		height: 70px !important;
+	}
+	.logo-text {
+		margin-left: 10px;
+		.top-text {
+			font-family: 'Fredoka One', cursive;
+			font-size: 40px;
+			font-weight: 100;
+			color: #0092DE;
+			margin-bottom: -20px;
+		}
+		.bot-text {
+			font-family: 'Poiret One', cursive;
+			font-size: 26px;
+			text-align: center;
+		}
+	}
+}
+.app-logo-alt {
+	img {
+		height: 40px !important;
+	}
+}
 /*==============================================================
 	Global Styles End
 ==============================================================*/
