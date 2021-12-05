@@ -12,13 +12,29 @@
 
   <div class="card mt-5">
     <div class="card-header">
-      <h4 class="card-title">Single Layout</h4>
+      <h4 class="card-title">Scan Barcode</h4>
     </div>
     <div class="card-body">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus nemo quasi labore expedita?
-        Veritatis
-        at maxime id voluptates excepturi molestiae possimus blanditiis dicta consequuntur maiores suscipit,
-        eveniet neque obcaecati doloribus.</p>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div id="barcode">
+            <video id="barcodevideo" width="100%" autoplay></video>
+            <canvas id="barcodecanvasg"></canvas>
+          </div>
+          <canvas id="barcodecanvas"></canvas>
+          {{-- <div id="result"></div> --}}
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="input-group mb-3">
+            <input id="result" type="search" class="form-control" placeholder="Kode Barang">
+            <span class="input-group-text" id="basic-addon2">
+              <i class="bi bi-upc-scan"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

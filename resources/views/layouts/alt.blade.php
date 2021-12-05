@@ -11,6 +11,33 @@
   @livewireStyles
   @stack('addon-style')
 
+  <link rel="stylesheet" href="{{ url('frontend/vendors/barcode/style.css') }}" />
+  <script type="text/javascript" src="{{ url('frontend/vendors/barcode/jquery.js') }}"></script>
+  <script type="text/javascript" src="{{ url('frontend/vendors/barcode/barcode.js') }}"></script>
+
+  <script type="text/javascript">
+    var sound = new Audio("frontend/vendors/barcode/barcode.wav");
+
+    $(document).ready(function() {
+
+      barcode.config.start = 0.1;
+      barcode.config.end = 0.9;
+      barcode.config.video = '#barcodevideo';
+      barcode.config.canvas = '#barcodecanvas';
+      barcode.config.canvasg = '#barcodecanvasg';
+      barcode.setHandler(function(barcode) {
+        $('#result').val(barcode);
+        sound.play();	
+      });
+      barcode.init();
+
+      // $('#result').bind('DOMSubtreeModified', function(e) {
+      //   sound.play();	
+      // });
+
+    });
+  </script>
+
 </head>
 <body>
 
