@@ -87,6 +87,14 @@
             <span>Scan Barcode</span>
           </a>
         </li>
+        </li>
+
+        <li class="sidebar-item {{ Request::is('/scan-barcode') ? 'active' : '' }}">
+          <a href="{{ route('scan-barcode') }}" class='sidebar-link'>
+            <i class="fad fa-users-cog"></i>
+            <span>Kelola Pengguna</span>
+          </a>
+        </li>
 
       </ul>
     </div>

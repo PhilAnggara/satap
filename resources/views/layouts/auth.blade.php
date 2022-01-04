@@ -20,7 +20,7 @@
 				</div>
 			</div> --}}
 			<div class="row justify-content-center">
-				<div class="col-md-12 col-lg-10">
+				<div class="col-12">
 					<div class="wrap d-md-flex">
 						<div class="img" style="background-image: url(frontend/images/login-img.jpg);">
 			      </div>
