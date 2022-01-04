@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="{{ url('frontend/vendors/fontawesome/css/all.min.css') }}">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">
 
+<link rel="stylesheet" href="{{ url('frontend/assets/vendors/simple-datatables/style.css') }}">
+
 <link rel="stylesheet" href="{{ url('frontend/assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
 <link rel="stylesheet" href="{{ url('frontend/assets/css/app.css') }}">

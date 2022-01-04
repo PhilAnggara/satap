@@ -29,21 +29,21 @@
           </a>
         </li>
 
-        <li class="sidebar-item {{ Request::is('/bangunan') ? 'active' : '' }}">
-          <a href="{{ route('dashboard') }}" class='sidebar-link'>
+        <li class="sidebar-item {{ Request::is('bangunan') ? 'active' : '' }}">
+          <a href="{{ route('bangunan.index') }}" class='sidebar-link'>
             <i class="fad fa-school"></i>
             <span>Bangunan</span>
           </a>
         </li>
 
-        <li class="sidebar-item {{ Request::is('/meubelair') ? 'active' : '' }}">
+        <li class="sidebar-item {{ Request::is('meubelair') ? 'active' : '' }}">
           <a href="{{ route('dashboard') }}" class='sidebar-link'>
             <i class="fad fa-chair-office"></i>
             <span>Meubel</span>
           </a>
         </li>
 
-        <li class="sidebar-item {{ Request::is('/meubelair') ? 'active' : '' }}">
+        <li class="sidebar-item {{ Request::is('alat-elektronik') ? 'active' : '' }}">
           <a href="{{ route('dashboard') }}" class='sidebar-link'>
             <i class="fad fa-desktop-alt"></i>
             <span>Alat Elektronik</span>
@@ -57,25 +57,25 @@
           </a>
         </li> --}}
 
-        <li class="sidebar-item {{ Request::is('/alat-penunjang-kbm') ? 'active' : '' }}has-sub">
+        <li class="sidebar-item {{ Request::is('alat-penunjang-kbm') ? 'active' : '' }} has-sub">
           <a href="#" class='sidebar-link'>
             <i class="fad fa-cabinet-filing"></i>
             <span>Alat Penunjang KBM</span>
           </a>
           <ul class="submenu ">
-            <li class="submenu-item ">
+            <li class="submenu-item {{ Request::is('alat-penunjang-kbm') ? 'active' : '' }}">
               <a href="{{ route('dashboard') }}">Buku</a>
             </li>
-            <li class="submenu-item ">
+            <li class="submenu-item {{ Request::is('alat-penunjang-kbm') ? 'active' : '' }}">
               <a href="{{ route('dashboard') }}">Alat laboratorium</a>
             </li>
-            <li class="submenu-item ">
+            <li class="submenu-item {{ Request::is('alat-penunjang-kbm') ? 'active' : '' }}">
               <a href="{{ route('dashboard') }}">Alat Matematika</a>
             </li>
-            <li class="submenu-item ">
+            <li class="submenu-item {{ Request::is('alat-penunjang-kbm') ? 'active' : '' }}">
               <a href="{{ route('dashboard') }}">Alat Olahraga</a>
             </li>
-            <li class="submenu-item ">
+            <li class="submenu-item {{ Request::is('alat-penunjang-kbm') ? 'active' : '' }}">
               <a href="{{ route('dashboard') }}">Alat Kesenian</a>
             </li>
           </ul>
