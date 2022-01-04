@@ -22,16 +22,68 @@
       <ul class="menu">
         <li class="sidebar-title">Menu</li>
 
-        <li class="sidebar-item active ">
+        <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }}">
           <a href="{{ route('dashboard') }}" class='sidebar-link'>
-            <i class="bi bi-grid-fill"></i>
+            <i class="fad fa-th-large"></i>
             <span>Beranda</span>
           </a>
         </li>
 
-        <li class="sidebar-item  ">
+        <li class="sidebar-item {{ Request::is('/bangunan') ? 'active' : '' }}">
+          <a href="{{ route('dashboard') }}" class='sidebar-link'>
+            <i class="fad fa-school"></i>
+            <span>Bangunan</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item {{ Request::is('/meubelair') ? 'active' : '' }}">
+          <a href="{{ route('dashboard') }}" class='sidebar-link'>
+            <i class="fad fa-chair-office"></i>
+            <span>Meubel</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item {{ Request::is('/meubelair') ? 'active' : '' }}">
+          <a href="{{ route('dashboard') }}" class='sidebar-link'>
+            <i class="fad fa-desktop-alt"></i>
+            <span>Alat Elektronik</span>
+          </a>
+        </li>
+
+        {{-- <li class="sidebar-item {{ Request::is('/buku') ? 'active' : '' }}">
+          <a href="{{ route('dashboard') }}" class='sidebar-link'>
+            <i class="fad fa-books"></i>
+            <span>Buku</span>
+          </a>
+        </li> --}}
+
+        <li class="sidebar-item {{ Request::is('/alat-penunjang-kbm') ? 'active' : '' }}has-sub">
+          <a href="#" class='sidebar-link'>
+            <i class="fad fa-cabinet-filing"></i>
+            <span>Alat Penunjang KBM</span>
+          </a>
+          <ul class="submenu ">
+            <li class="submenu-item ">
+              <a href="{{ route('dashboard') }}">Buku</a>
+            </li>
+            <li class="submenu-item ">
+              <a href="{{ route('dashboard') }}">Alat laboratorium</a>
+            </li>
+            <li class="submenu-item ">
+              <a href="{{ route('dashboard') }}">Alat Matematika</a>
+            </li>
+            <li class="submenu-item ">
+              <a href="{{ route('dashboard') }}">Alat Olahraga</a>
+            </li>
+            <li class="submenu-item ">
+              <a href="{{ route('dashboard') }}">Alat Kesenian</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar-item {{ Request::is('/scan-barcode') ? 'active' : '' }}">
           <a href="{{ route('scan-barcode') }}" class='sidebar-link'>
-            <i class="bi bi-upc-scan"></i>
+            <i class="fad fa-barcode-scan"></i>
             <span>Scan Barcode</span>
           </a>
         </li>
