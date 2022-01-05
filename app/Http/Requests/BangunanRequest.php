@@ -18,9 +18,9 @@ class BangunanRequest extends FormRequest
             'nama_bangunan' => 'required|max:255',
             'jumlah_ruangan' => 'required',
             'gambar' => 'image|max:5000',
-            'tanggal_berdiri' => 'required|date',
+            'tanggal' => 'required|date',
             'kondisi' => 'required|max:255',
-            'keterangan' => 'required|max:255',
+            'keterangan' => 'max:255',
         ];
     }
 

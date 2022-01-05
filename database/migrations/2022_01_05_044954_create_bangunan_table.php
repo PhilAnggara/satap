@@ -16,13 +16,13 @@ class CreateBangunanTable extends Migration
         Schema::create('bangunan', function (Blueprint $table) {
             $table->id();
             $table->string('kode');
-            $table->string('barcode');
+            $table->string('barcode')->nullable();
             $table->string('nama_bangunan');
             $table->integer('jumlah_ruangan');
             $table->text('gambar')->nullable();
-            $table->date('tanggal_berdiri');
+            $table->date('tanggal');
             $table->string('kondisi');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

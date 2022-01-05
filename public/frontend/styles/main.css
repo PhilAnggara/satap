@@ -34,12 +34,29 @@
   height: 40px !important;
 }
 
+.image-preview {
+  width: 100%;
+  min-height: 200px;
+  cursor: pointer;
+  border: 2px solid #dddddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #cccccc;
+  transition: background-color 0.2s;
+}
+.image-preview:hover {
+  background-color: #f0f0f0;
+  color: #cccccc;
+}
+.image-preview .ip-image {
+  display: none;
+  width: 100%;
+}
+
 /*==============================================================
 	Global Styles End
-==============================================================*/
-/*==============================================================
-	Login Page Start
-==============================================================*/
-/*==============================================================
-	Login Page End
 ==============================================================*//*# sourceMappingURL=main.css.map */
