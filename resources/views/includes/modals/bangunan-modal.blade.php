@@ -126,16 +126,15 @@ aria-hidden="true">
       
       @if ($item->gambar)
         <img src="{{ Storage::url($item->gambar) }}" class="img-fluid img-thumbnail mb-3" width="100%">
-        <form action="{{ route('delete-image', $item->id) }}" method="POST">
+        <div class="d-flex justify-content-center">
+          <a href="#" id="hapusGbr" class="hapus-gbr btn btn-sm icon btn-light" data-id="{{ $item->id }}" data-title="{{ $item->nama_bangunan }}">
+            <i class="far fa-trash text-secondary"></i>
+            Hapus Gambar
+          </a>
+        </div>
+        <form action="{{ route('delete-image', $item->id) }}" id="hapus-gbr-{{ $item->id }}" method="POST">
           @csrf
           <input type="hidden" name="table" value="Bangunan">
-          @csrf
-          <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-sm icon btn-light">
-              <i class="far fa-trash text-secondary"></i>
-              Hapus Gambar
-            </button>
-          </div>
         </form>
       @else
         <div class="border rounded mb-2 py-5">
