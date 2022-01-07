@@ -12,7 +12,22 @@
 
   <div class="card mt-5">
     <div class="card-header">
-      <h4 class="card-title">Scan Barcode</h4>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h4 class="card-title">Scan Barcode</h4>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="input-group">
+            <button type="button" class="btn icon btn-secondary" onclick="document.getElementById('result').value = ''">
+              <i class="far fa-redo" data-bs-toggle="tooltip" data-bs-placement="top" title="Reset"></i>
+            </button>
+            <input id="result" type="search" class="form-control" placeholder="Kode Barang">
+            <span class="input-group-text">
+              <i class="bi bi-upc-scan"></i>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="card-body">
 
@@ -25,14 +40,14 @@
           <canvas id="barcodecanvas"></canvas>
           {{-- <div id="result"></div> --}}
         </div>
-        <div class="col-12 col-md-6">
+        {{-- <div class="col-12 col-md-6">
           <div class="input-group mb-3">
             <input id="result" type="search" class="form-control" placeholder="Kode Barang">
             <span class="input-group-text" id="basic-addon2">
               <i class="bi bi-upc-scan"></i>
             </span>
           </div>
-        </div>
+        </div> --}}
       </div>
       
     </div>

@@ -179,16 +179,16 @@ aria-hidden="true">
           @endif
 
           <div class="form-group">
-            <label for="gambar">Gambar</label>
+            <label for="gambar">{{ $item->gambar ? 'Ganti ' : 'Tambah ' }}Gambar</label>
             <small class="text-muted">(optional)</small>
-            @if ($item->gambar)
+            {{-- @if ($item->gambar)
               <img src="{{ Storage::url($item->gambar) }}" class="img-fluid rounded mb-3">
             @else
               <div class="image-preview" id="imagePreview">
                 <img src="" alt="Image Preview" class="ip-image">
                 <span class="ip-default-text">Pilih Gambar</span>
               </div>
-            @endif
+            @endif --}}
             <div class="input-group mb-3">
               <label class="input-group-text" for="gambar"><i class="bi bi-upload"></i></label>
               <input type="file" class="form-control" name="gambar" id="gambar" accept="image/*">
