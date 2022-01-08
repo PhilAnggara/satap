@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BangunanController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
@@ -12,6 +13,8 @@ Route::middleware(['auth'])->group(function () {
   
   Route::post('hapus-gambar/{id}', [MainController::class, 'deleteImage'])->name('delete-image');
   Route::get('scan-barcode', [MainController::class, 'barcode'])->name('scan-barcode');
+  
+  Route::resource('pengguna', UserController::class);
   
 });
 

@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Nama Kepala Sekolah',
-            'username' => 'kepalasekolah',
-            'email' => 'kepalasekolah@gmail.com',
+            'name' => 'Phil Anggara',
+            'username' => 'philanggara',
+            'email' => 'philanggara@gmail.com',
             // 'profile_pic' => '',
             'role' => 'Kepala Sekolah',
             'approved' => true,
@@ -31,6 +31,15 @@ class UserSeeder extends Seeder
             // 'profile_pic' => '',
             'role' => 'Operator',
             'approved' => true,
+            'password' => Hash::make('Admin123')
+        ]);
+        User::create([
+            'name' => 'Angga Bawole',
+            'username' => 'anggabawole',
+            'email' => 'anggabawole@gmail.com',
+            // 'profile_pic' => '',
+            'role' => 'Tata Usaha',
+            'approved' => false,
             'password' => Hash::make('Admin123')
         ]);
     }

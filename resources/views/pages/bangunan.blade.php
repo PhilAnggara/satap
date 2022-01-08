@@ -96,3 +96,54 @@
 </div>
 @include('includes.modals.bangunan-modal')
 @endsection
+
+@push('addon-script')
+<script>
+  // Image Preview
+  const inpFile = document.getElementById("gambar");
+  const previewContainer = document.getElementById("imagePreview");
+  const previewImage = previewContainer.querySelector(".ip-image");
+  const previewDefaultText = previewContainer.querySelector(".ip-default-text");
+
+  previewContainer.addEventListener("click", function() {
+    console.log("Di klik");
+    inpFile.click();
+  });
+
+  inpFile.addEventListener("change", function() {
+    const file = this.files[0];
+    console.log(file);
+    
+    if (file) {
+      const reader = new FileReader();
+
+      previewDefaultText.style.display = "none";
+      previewImage.style.display = "block";
+
+      reader.addEventListener("load", function() {
+        console.log(this);
+        previewImage.setAttribute("src", this.result);
+      });
+
+      reader.readAsDataURL(file);
+    } else {
+      previewDefaultText.style.display = null;
+      previewImage.style.display = null;
+      previewImage.setAttribute("src", "");
+    }
+  });
+
+  // DataTable
+  let table1 = document.querySelector('#table1');
+  let dataTable = new simpleDatatables.DataTable(table1, {
+    sortable: false,
+    perPageSelect: false,
+    labels: {
+      placeholder: "Cari...",
+      perPage: "{select} data per halaman",
+      noRows: "Data tidak ditemukan",
+      info: "Menampilkan {start} - {end} dari {rows} data",
+    }
+  });
+</script>
+@endpush
