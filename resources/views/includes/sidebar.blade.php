@@ -96,7 +96,7 @@
               <a href="{{ route('pengguna.index') }}" class='sidebar-link'>
                 <i class="fad fa-users-cog"></i>
                 <span>Kelola Pengguna</span>
-                <span class="badge rounded-pill bg-warning">1</span>
+                @livewire('counter')
               </a>
             </li>
           @endif

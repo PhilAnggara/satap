@@ -27,6 +27,7 @@
 
   @stack('prepend-script')
   @include('includes.script')
+  <script src="{{ url('js/app.js') }}"></script>
   @livewireScripts
   @stack('addon-script')
 
