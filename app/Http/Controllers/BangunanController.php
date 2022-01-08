@@ -27,7 +27,8 @@ class BangunanController extends Controller
     {
         $data = $request->all();
 
-        $data['kode'] = $this->generateKode(Bangunan::all(), 'BAN', $data);
+        $data['kode'] = $this->generateKode('BAN', $data, Bangunan::all());
+        $data['barcode'] = $this->generateBarcode($data['kode']);
 
         if ($request['gambar']) {
             $data['gambar'] = $request->file('gambar')->store('gambar/bangunan', 'public');
@@ -50,6 +51,9 @@ class BangunanController extends Controller
     public function update(BangunanRequest $request, $id)
     {
         $data = $request->all();
+
+        $data['kode'] = $this->updateKode('BAN', $data, $id);
+        $data['barcode'] = $this->generateBarcode($data['kode']);
 
         if ($request['gambar']) {
             $data['gambar'] = $request->file('gambar')->store('gambar/bangunan', 'public');

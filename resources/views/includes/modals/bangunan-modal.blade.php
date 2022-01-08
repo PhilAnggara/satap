@@ -98,11 +98,12 @@ aria-hidden="true">
         <i data-feather="x"></i>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body text-center pt-5">
 
-      <a href="{{ url('frontend/images/barcode.jpg') }}" download>
-        <img src="{{ url('frontend/images/barcode.jpg') }}" class="img-fluid img-thumbnail mb-3">
+      <a href="{{ Storage::url($item->barcode) }}" download>
+        <img src="{{ Storage::url($item->barcode) }}" class="barcode-img img-fluid mb-3">
       </a>
+      <p>{{ $item->kode }}</p>
 
     </div>
   </div>
