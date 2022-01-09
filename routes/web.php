@@ -18,22 +18,26 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/', [MainController::class, 'home'])->name('dashboard');
   Route::get('generate/{kode}', [MainController::class, 'generateBarcodeManualy']);
 
-  Route::resource('bangunan', BangunanController::class);
-  Route::resource('meubel', MeubelController::class);
-  Route::resource('elektronik', ElektronikController::class);
+  Route::middleware('is.verified')->group(function () {
 
-  Route::prefix('alat-penunjang-kbm')->group(function () {
-    Route::resource('buku', BukuController::class);
-    Route::resource('laboratorium', LaboratoriumController::class);
-    Route::resource('matematika', MatematikaController::class);
-    Route::resource('olahraga', OlahragaController::class);
-    Route::resource('kesenian', KesenianController::class);
+    Route::resource('bangunan', BangunanController::class);
+    Route::resource('meubel', MeubelController::class);
+    Route::resource('elektronik', ElektronikController::class);
+
+    Route::prefix('alat-penunjang-kbm')->group(function () {
+      Route::resource('buku', BukuController::class);
+      Route::resource('laboratorium', LaboratoriumController::class);
+      Route::resource('matematika', MatematikaController::class);
+      Route::resource('olahraga', OlahragaController::class);
+      Route::resource('kesenian', KesenianController::class);
+    });
+    
+    Route::post('hapus-gambar/{id}', [MainController::class, 'deleteImage'])->name('delete-image');
+    Route::get('scan-barcode', [MainController::class, 'barcode'])->name('scan-barcode');
+    
+    Route::resource('pengguna', UserController::class)->middleware('is.principal');
+    
   });
-  
-  Route::post('hapus-gambar/{id}', [MainController::class, 'deleteImage'])->name('delete-image');
-  Route::get('scan-barcode', [MainController::class, 'barcode'])->name('scan-barcode');
-  
-  Route::resource('pengguna', UserController::class);
   
 });
 
