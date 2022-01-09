@@ -39,14 +39,14 @@
           </li>
 
           <li class="sidebar-item {{ Request::is('meubelair') ? 'active' : '' }}">
-            <a href="{{ route('dashboard') }}" class='sidebar-link'>
+            <a href="{{ route('meubel.index') }}" class='sidebar-link'>
               <i class="fad fa-chair-office"></i>
               <span>Meubel</span>
             </a>
           </li>
 
           <li class="sidebar-item {{ Request::is('alat-elektronik') ? 'active' : '' }}">
-            <a href="{{ route('dashboard') }}" class='sidebar-link'>
+            <a href="{{ route('elektronik.index') }}" class='sidebar-link'>
               <i class="fad fa-desktop-alt"></i>
               <span>Alat Elektronik</span>
             </a>

@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Example extends Model
+class Matematika extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'table';
+    protected $table = 'matematika';
 
     protected $guarded = [
         'id'

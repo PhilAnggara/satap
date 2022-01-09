@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bangunan;
 use Illuminate\Http\Request;
+use Picqer;
 
 class MainController extends Controller
 {
@@ -30,5 +31,13 @@ class MainController extends Controller
         $item->save();
 
         return redirect()->back()->with('success', 'Gambar Berhasil Dihapus!');
+    }
+
+    public function generateBarcodeManualy($kode)
+    {
+        $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+        file_put_contents('storage/gambar/example/'.$kode.'.png', $generator->getBarcode($kode, $generator::TYPE_CODE_128, 4, 300));
+
+        return back();
     }
 }
