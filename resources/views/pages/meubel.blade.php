@@ -77,7 +77,7 @@
                     <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#edit-{{ $item->id }}">
                       <i class="far fa-edit text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"></i>
                     </button>
-                    <a href="#" id="btnHapus" class="btn-hapus btn icon btn-light" data-id="{{ $item->id }}" data-title="{{ $item->nama_bangunan }}">
+                    <a href="#" id="btnHapus" class="btn-hapus btn icon btn-light" data-id="{{ $item->id }}" data-title="{{ $item->nama_barang }}">
                       <i class="far fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"></i>
                     </a>
                     <form action="{{ route('meubel.destroy', $item->id) }}" id="hapus-{{ $item->id }}" method="POST">

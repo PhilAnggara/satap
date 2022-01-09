@@ -66,19 +66,19 @@
             </a>
             <ul class="submenu ">
               <li class="submenu-item {{ Request::is('alat-penunjang-kbm/buku') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">Buku</a>
+                <a href="{{ route('buku.index') }}">Buku</a>
               </li>
               <li class="submenu-item {{ Request::is('alat-penunjang-kbm/laboratorium') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">Alat laboratorium</a>
+                <a href="{{ route('laboratorium.index') }}">Alat laboratorium</a>
               </li>
               <li class="submenu-item {{ Request::is('alat-penunjang-kbm/matematika') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">Alat Matematika</a>
+                <a href="{{ route('matematika.index') }}">Alat Matematika</a>
               </li>
               <li class="submenu-item {{ Request::is('alat-penunjang-kbm/olahraga') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">Alat Olahraga</a>
+                <a href="{{ route('olahraga.index') }}">Alat Olahraga</a>
               </li>
               <li class="submenu-item {{ Request::is('alat-penunjang-kbm/kesenian') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">Alat Kesenian</a>
+                <a href="{{ route('kesenian.index') }}">Alat Kesenian</a>
               </li>
             </ul>
           </li>

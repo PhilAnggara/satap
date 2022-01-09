@@ -6,7 +6,7 @@
   <div class="page-title">
     <div class="row">
       <div class="col-6 col-md-6 float-start">
-        <h3>Elektronik</h3>
+        <h3>{{ $title }}</h3>
       </div>
       <div class="col-6 col-md-6">
         <button class="btn icon icon-left btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#tambah">
@@ -80,7 +80,7 @@
                     <a href="#" id="btnHapus" class="btn-hapus btn icon btn-light" data-id="{{ $item->id }}" data-title="{{ $item->nama_barang }}">
                       <i class="far fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"></i>
                     </a>
-                    <form action="{{ route('elektronik.destroy', $item->id) }}" id="hapus-{{ $item->id }}" method="POST">
+                    <form action="{{ route($type.'.destroy', $item->id) }}" id="hapus-{{ $item->id }}" method="POST">
                       @method('delete')
                       @csrf
                     </form>
@@ -94,7 +94,7 @@
     </div>
   </section>
 </div>
-@include('includes.modals.elektronik-modal')
+@include('includes.modals.kbm-modal')
 @endsection
 
 @push('addon-script')
