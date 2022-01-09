@@ -17,7 +17,7 @@ class GeneralRequest extends FormRequest
             'nama_barang' => 'required|max:255',
             'gambar' => 'image|max:5000',
             'tanggal' => 'required|date',
-            'tanggal' => 'required|integer',
+            'jumlah' => 'required|integer',
             'kondisi' => 'required|max:255',
             'keterangan' => 'max:255',
         ];

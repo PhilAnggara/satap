@@ -38,7 +38,7 @@
             </a>
           </li>
 
-          <li class="sidebar-item {{ Request::is('meubelair') ? 'active' : '' }}">
+          <li class="sidebar-item {{ Request::is('meubel') ? 'active' : '' }}">
             <a href="{{ route('meubel.index') }}" class='sidebar-link'>
               <i class="fad fa-chair-office"></i>
               <span>Meubel</span>

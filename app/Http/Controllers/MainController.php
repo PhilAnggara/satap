@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bangunan;
+use App\Models\Buku;
+use App\Models\Elektronik;
+use App\Models\Kesenian;
+use App\Models\Laboratorium;
+use App\Models\Matematika;
+use App\Models\Meubel;
+use App\Models\Olahraga;
 use Illuminate\Http\Request;
 use Picqer;
 
@@ -22,9 +29,37 @@ class MainController extends Controller
     {
         $data = $request->all();
 
-        if ($data['table'] == 'Bangunan') 
+        if ($data['table'] == 'bangunan') 
         {
             $item = Bangunan::find($id);
+        } 
+        elseif ($data['table'] == 'meubel') 
+        {
+            $item = Meubel::find($id);
+        }
+        elseif ($data['table'] == 'elektronik') 
+        {
+            $item = Elektronik::find($id);
+        }
+        elseif ($data['table'] == 'buku') 
+        {
+            $item = Buku::find($id);
+        }
+        elseif ($data['table'] == 'laboratorium') 
+        {
+            $item = Laboratorium::find($id);
+        }
+        elseif ($data['table'] == 'matematika') 
+        {
+            $item = Matematika::find($id);
+        }
+        elseif ($data['table'] == 'olahraga') 
+        {
+            $item = Olahraga::find($id);
+        }
+        elseif ($data['table'] == 'kesenian') 
+        {
+            $item = Kesenian::find($id);
         }
 
         $item->gambar = "";
