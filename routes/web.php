@@ -14,7 +14,11 @@ Route::middleware(['auth'])->group(function () {
 
   Route::resource('bangunan', BangunanController::class);
   Route::resource('meubel', MeubelController::class);
-  Route::resource('alat-elektronik', ElektronikController::class);
+  Route::resource('elektronik', ElektronikController::class);
+
+  Route::prefix('alat-penunjang-kbm')->group(function () {
+    // 
+  });
   
   Route::post('hapus-gambar/{id}', [MainController::class, 'deleteImage'])->name('delete-image');
   Route::get('scan-barcode', [MainController::class, 'barcode'])->name('scan-barcode');

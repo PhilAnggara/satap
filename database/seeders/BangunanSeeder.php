@@ -18,7 +18,7 @@ class BangunanSeeder extends Seeder
         Bangunan::create([
             'kode' => 'BAN-09-0001',
             'barcode' => 'gambar/example/BAN-09-0001.png',
-            'nama_bangunan' => 'Bangunan Satu',
+            'nama_bangunan' => 'Bangunan A',
             'jumlah_ruangan' => 3,
             'gambar' => 'gambar/example/img-1.jpg',
             'tanggal' => Carbon::parse('2009-1-1'),
@@ -28,7 +28,7 @@ class BangunanSeeder extends Seeder
         Bangunan::create([
             'kode' => 'BAN-10-0002',
             'barcode' => 'gambar/example/BAN-10-0002.png',
-            'nama_bangunan' => 'Bangunan Dua',
+            'nama_bangunan' => 'Bangunan B',
             'jumlah_ruangan' => 2,
             'gambar' => 'gambar/example/img-2.jpg',
             'tanggal' => Carbon::parse('2010-1-1'),
@@ -38,7 +38,7 @@ class BangunanSeeder extends Seeder
         Bangunan::create([
             'kode' => 'BAN-12-0003',
             'barcode' => 'gambar/example/BAN-12-0003.png',
-            'nama_bangunan' => 'Bangunan Tiga',
+            'nama_bangunan' => 'Bangunan C',
             'jumlah_ruangan' => 5,
             'tanggal' => Carbon::parse('2012-1-1'),
             'kondisi' => 'Baik',
