@@ -93,7 +93,7 @@ aria-hidden="true">
 <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
   <div class="modal-content">
     <div class="modal-header bg-dark white">
-      <span class="modal-title" id="myModalLabel1">{{ $item->kode }}</span>
+      <span class="modal-title" id="myModalLabel1">{{ $item->nama_bangunan }}</span>
       <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
         <i data-feather="x"></i>
       </button>
@@ -103,7 +103,7 @@ aria-hidden="true">
       <a href="{{ Storage::url($item->barcode) }}" download>
         <img src="{{ Storage::url($item->barcode) }}" class="barcode-img img-fluid mb-3">
       </a>
-      <p>{{ $item->kode }}</p>
+      <p class="lead">{{ $item->kode }}</p>
 
     </div>
   </div>

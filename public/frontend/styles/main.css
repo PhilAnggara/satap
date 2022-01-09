@@ -57,6 +57,13 @@
   width: 100%;
 }
 
+#camera video {
+  width: 100%;
+}
+#camera canvas {
+  display: none;
+}
+
 /*==============================================================
 	Global Styles End
 ==============================================================*//*# sourceMappingURL=main.css.map */

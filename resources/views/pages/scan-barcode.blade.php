@@ -3,29 +3,15 @@
 
 @section('content')
 <div class="container">
-  
-  {{-- <div class="row">
-    <div class="col-12 col-md-6 order-md-1 order-last">
-      <h3>Scan Barcode</h3>
-    </div>
-  </div> --}}
 
-  <div class="card mt-5">
+  <div class="card mt-md-5">
     <div class="card-header">
       <div class="row">
         <div class="col-12 col-md-6">
           <h4 class="card-title">Scan Barcode</h4>
         </div>
         <div class="col-12 col-md-6">
-          <div class="input-group">
-            <button type="button" class="btn icon btn-secondary" onclick="document.getElementById('result').value = ''">
-              <i class="far fa-redo" data-bs-toggle="tooltip" data-bs-placement="top" title="Reset"></i>
-            </button>
-            <input id="result" type="search" class="form-control" placeholder="Kode Barang">
-            <span class="input-group-text">
-              <i class="bi bi-upc-scan"></i>
-            </span>
-          </div>
+          @livewire('input')
         </div>
       </div>
     </div>
@@ -33,24 +19,63 @@
 
       <div class="row">
         <div class="col-12 col-md-6">
-          <div id="barcode">
-            <video id="barcodevideo" width="100%" autoplay></video>
-            <canvas id="barcodecanvasg"></canvas>
-          </div>
-          <canvas id="barcodecanvas"></canvas>
-          {{-- <div id="result"></div> --}}
+          <div id="camera" width="100%"></div>
         </div>
-        {{-- <div class="col-12 col-md-6">
-          <div class="input-group mb-3">
-            <input id="result" type="search" class="form-control" placeholder="Kode Barang">
-            <span class="input-group-text" id="basic-addon2">
-              <i class="bi bi-upc-scan"></i>
-            </span>
-          </div>
-        </div> --}}
+        <div class="col-12 col-md-6">
+          @livewire('result')
+        </div>
       </div>
       
     </div>
   </div>
 </div>
 @endsection
+
+@push('addon-script')
+  <script src="{{ url('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url('frontend/vendors/quaggaJs/quagga.min.js') }}"></script>
+  <script>
+
+    var sound = new Audio('frontend/sound/found.wav');
+
+    // ToolTip
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+
+    // Clear Input
+    function clearInput() {
+      document.getElementById('result').value = '';
+      document.getElementById('result').dispatchEvent(new Event('input'));
+    }
+
+    // Scanner
+    Quagga.init({
+      inputStream : {
+        name : "Live",
+        type : "LiveStream",
+        target: document.querySelector('#camera')
+      },
+      frequency: 1,
+      decoder : {
+        readers : ["code_128_reader"]
+      }
+    }, function(err) {
+      if (err) {
+        console.log(err);
+        return
+      }
+      console.log("Ready to start");
+      Quagga.start();
+    });
+
+    Quagga.onDetected(function (data){
+      console.log(data);
+      document.querySelector('#result').value=data.codeResult.code;
+      document.getElementById('result').dispatchEvent(new Event('input'));
+      sound.play();
+    });
+    
+  </script>
+@endpush
