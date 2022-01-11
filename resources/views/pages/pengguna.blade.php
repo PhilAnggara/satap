@@ -30,68 +30,70 @@
 
     <div class="card">
       <div class="card-body">
-        <table class="table table-striped text-center text-nowrap">
-          <thead>
-            <tr>
-              <th class="text-center">Nama</th>
-              <th class="text-center">Username</th>
-              <th class="text-center">Email</th>
-              <th class="text-center">Jabatan</th>
-              <th class="text-center">Status</th>
-              <th class="text-center"></th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($users as $user)
+        <div class="table-responsive">
+          <table class="table table-striped text-center text-nowrap">
+            <thead>
               <tr>
-                <td class="text-start">
-                  <div class="avatar avatar-lg bg-secondary me-3">
-                    <img src="https://ui-avatars.com/api/?background=0092DE&color=fff&bold=true&name={{ $user->name }}" alt="" srcset="">
-                  </div>
-                  {{ $user->name }}
-                </td>
-                <td>{{ $user->username }}</td>
-                <td>{{ $user->email }}</td>
-                <td>
-                  @if ($user->role == 'Operator')
-                    <span class="badge bg-light-success">Operator</span>
-                  @elseif ($user->role == 'Tata Usaha')
-                    <span class="badge bg-light-info">Tata Usaha</span>
-                  @else
-                    {{-- <span class="badge bg-light-primary">-</span> --}}
-                  @endif
-                </td>
-                <td>
-                  @if ($user->approved)
-                    <button class="btn icon icon-left btn-secondary btn-sm" disabled>
-                      <i class="far fa-user-shield"></i>
-                      Disetujui
-                    </button>
-                  @else
-                    <a href="#" id="setujuUser" class="setuju-user btn icon icon-left btn-primary btn-sm" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-role="{{ $user->role }}">
-                      <i class="far fa-user-check"></i>
-                      Setujui
-                    </a>
-                    <form action="{{ route('pengguna.update', $user->id) }}" id="setuju-user-{{ $user->id }}" method="POST">
-                      @method('put')
-                      @csrf
-                      <input type="hidden" name="approved" value="1">
-                    </form>
-                  @endif
-                </td>
-                <td>
-                  <a href="#" id="hapusUser" class="hapus-user btn icon btn-light" data-id="{{ $user->id }}" data-name="{{ $user->name }}">
-                    <i class="far fa-user-times" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Pengguna"></i>
-                  </a>
-                  <form action="{{ route('pengguna.destroy', $user->id) }}" id="hapus-user-{{ $user->id }}" method="POST">
-                    @method('delete')
-                    @csrf
-                  </form>
-                </td>
+                <th class="text-center">Nama</th>
+                <th class="text-center">Username</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Jabatan</th>
+                <th class="text-center">Status</th>
+                <th class="text-center"></th>
               </tr>
-            @endforeach
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              @foreach ($users as $user)
+                <tr>
+                  <td class="text-start">
+                    <div class="avatar avatar-lg bg-secondary me-3">
+                      <img src="https://ui-avatars.com/api/?background=0092DE&color=fff&bold=true&name={{ $user->name }}" alt="" srcset="">
+                    </div>
+                    {{ $user->name }}
+                  </td>
+                  <td>{{ $user->username }}</td>
+                  <td>{{ $user->email }}</td>
+                  <td>
+                    @if ($user->role == 'Operator')
+                      <span class="badge bg-light-success">Operator</span>
+                    @elseif ($user->role == 'Tata Usaha')
+                      <span class="badge bg-light-info">Tata Usaha</span>
+                    @else
+                      {{-- <span class="badge bg-light-primary">-</span> --}}
+                    @endif
+                  </td>
+                  <td>
+                    @if ($user->approved)
+                      <button class="btn icon icon-left btn-secondary btn-sm" disabled>
+                        <i class="far fa-user-shield"></i>
+                        Disetujui
+                      </button>
+                    @else
+                      <a href="#" id="setujuUser" class="setuju-user btn icon icon-left btn-primary btn-sm" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-role="{{ $user->role }}">
+                        <i class="far fa-user-check"></i>
+                        Setujui
+                      </a>
+                      <form action="{{ route('pengguna.update', $user->id) }}" id="setuju-user-{{ $user->id }}" method="POST">
+                        @method('put')
+                        @csrf
+                        <input type="hidden" name="approved" value="1">
+                      </form>
+                    @endif
+                  </td>
+                  <td>
+                    <a href="#" id="hapusUser" class="hapus-user btn icon btn-light" data-id="{{ $user->id }}" data-name="{{ $user->name }}">
+                      <i class="far fa-user-times" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Pengguna"></i>
+                    </a>
+                    <form action="{{ route('pengguna.destroy', $user->id) }}" id="hapus-user-{{ $user->id }}" method="POST">
+                      @method('delete')
+                      @csrf
+                    </form>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>

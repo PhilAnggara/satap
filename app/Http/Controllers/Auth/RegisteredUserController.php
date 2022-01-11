@@ -48,12 +48,20 @@ class RegisteredUserController extends Controller
             );
         }
 
+
+        $approved = 0;
+        if (!$request->role) {
+            $approved = 1;
+            $request->role = 'Umum';
+        }
+
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'profile_pic' => $request->profile_pic,
             'role' => $request->role,
+            'approved' => $approved,
             'password' => Hash::make($request->password),
         ]);
 

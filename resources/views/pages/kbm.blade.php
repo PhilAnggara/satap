@@ -8,12 +8,14 @@
       <div class="col-6 col-md-6 float-start">
         <h3>{{ $title }}</h3>
       </div>
-      <div class="col-6 col-md-6">
-        <button class="btn icon icon-left btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#tambah">
-          <i class="fad fa-plus-circle"></i> 
-          Tambah Data
-        </button>
-      </div>
+      @if (auth()->user()->role != 'Umum')
+        <div class="col-6 col-md-6">
+          <button class="btn icon icon-left btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#tambah">
+            <i class="fad fa-plus-circle"></i> 
+            Tambah Data
+          </button>
+        </div>
+      @endif
     </div>
   </div>
   <section class="section mt-3">
@@ -44,7 +46,9 @@
               <th class="text-center">Jumlah</th>
               <th class="text-center">Kondisi</th>
               <th class="text-center">Keterangan</th>
-              <th class="text-center"></th>
+              @if (auth()->user()->role != 'Umum')
+                <th class="text-center"></th>
+              @endif
             </tr>
           </thead>
           <tbody>
@@ -69,23 +73,25 @@
                   @endif
                 </td>
                 <td>{{ $item->keterangan }}</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#gambar-{{ $item->id }}">
-                      <i class="{{ $item->gambar ? 'far' : 'fal' }} fa-image text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Gambar"></i>
-                    </button>
-                    <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#edit-{{ $item->id }}">
-                      <i class="far fa-edit text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"></i>
-                    </button>
-                    <a href="#" id="btnHapus" class="btn-hapus btn icon btn-light" data-id="{{ $item->id }}" data-title="{{ $item->nama_barang }}">
-                      <i class="far fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"></i>
-                    </a>
-                    <form action="{{ route($type.'.destroy', $item->id) }}" id="hapus-{{ $item->id }}" method="POST">
-                      @method('delete')
-                      @csrf
-                    </form>
-                  </div>
-                </td>
+                @if (auth()->user()->role != 'Umum')
+                  <td>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#gambar-{{ $item->id }}">
+                        <i class="{{ $item->gambar ? 'far' : 'fal' }} fa-image text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Gambar"></i>
+                      </button>
+                      <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#edit-{{ $item->id }}">
+                        <i class="far fa-edit text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"></i>
+                      </button>
+                      <a href="#" id="btnHapus" class="btn-hapus btn icon btn-light" data-id="{{ $item->id }}" data-title="{{ $item->nama_barang }}">
+                        <i class="far fa-trash text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus"></i>
+                      </a>
+                      <form action="{{ route($type.'.destroy', $item->id) }}" id="hapus-{{ $item->id }}" method="POST">
+                        @method('delete')
+                        @csrf
+                      </form>
+                    </div>
+                  </td>
+                @endif
               </tr>
             @endforeach
           </tbody>

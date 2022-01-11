@@ -10,6 +10,7 @@ use App\Models\Laboratorium;
 use App\Models\Matematika;
 use App\Models\Meubel;
 use App\Models\Olahraga;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Picqer;
 
@@ -17,7 +18,17 @@ class MainController extends Controller
 {
     public function home()
     {
-        return view('pages.dashboard');
+        $a = Bangunan::all()->count();
+        $b = Meubel::all()->count();
+        $c = Elektronik::all()->count();
+        $d = Buku::all()->count() + Laboratorium::all()->count() + Matematika::all()->count() + Olahraga::all()->count() + Kesenian::all()->count();
+
+        return view('pages.dashboard', [
+            'a' => $a,
+            'b' => $b,
+            'c' => $c,
+            'd' => $d
+        ]);
     }
     
     public function barcode()

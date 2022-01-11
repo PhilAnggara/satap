@@ -42,9 +42,9 @@
     </div>
 
     <div class="form-group mb-3">
-      <label class="label" for="role">Jabatan</label>
+      <label class="label" for="role">Jabatan <small>(Optional)</small></label>
       <select id="role" name="role" class="form-control" required>
-        <option value="" selected disabled>-- Pilih Jabatan --</option>
+        <option value="Umum" selected disabled>-- Pilih Jabatan --</option>
         <option {{ old('role') == 'Operator' ? 'selected' : '' }} value="Operator">Operator</option>
         <option {{ old('role') == 'Tata Usaha' ? 'selected' : '' }} value="Tata Usaha">Tata Usaha</option>
       </select>
