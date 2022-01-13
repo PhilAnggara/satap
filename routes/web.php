@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
 
   Route::get('/', [MainController::class, 'home'])->name('dashboard');
+  Route::get('cetak-laporan', [MainController::class, 'cetakLaporan'])->name('cetak-laporan');
   Route::get('generate/{kode}', [MainController::class, 'generateBarcodeManualy']);
 
   Route::middleware('is.verified')->group(function () {

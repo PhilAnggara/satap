@@ -11,7 +11,9 @@ use App\Models\Matematika;
 use App\Models\Meubel;
 use App\Models\Olahraga;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Picqer;
 
 class MainController extends Controller
@@ -77,6 +79,38 @@ class MainController extends Controller
         $item->save();
 
         return redirect()->back()->with('success', 'Gambar Berhasil Dihapus!');
+    }
+
+    public function cetakLaporan()
+    {
+        $date = Carbon::now()->isoFormat('MMMM YYYY');
+        $now = Carbon::now()->isoFormat('D MMMM Y');
+        $title = 'Laporan Inventaris Barang';
+
+        $meubel = Meubel::all();
+        $elektronik = Elektronik::all();
+        $buku = Buku::all();
+        $laboratorium = Laboratorium::all();
+        $matematika = Matematika::all();
+        $olahraga = Olahraga::all();
+        $kesenian = Kesenian::all();
+
+        $items = collect($meubel);
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pages.pdf.laporan', [
+            'title' => $title,
+            'items' => $items,
+            'meubel' => $meubel,
+            'elektronik' => $elektronik,
+            'buku' => $buku,
+            'laboratorium' => $laboratorium,
+            'matematika' => $matematika,
+            'olahraga' => $olahraga,
+            'kesenian' => $kesenian,
+        ]);
+
+        return $pdf->stream($title);
     }
 
     public function generateBarcodeManualy($kode)

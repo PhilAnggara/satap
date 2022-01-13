@@ -5,9 +5,17 @@
 <div class="page-heading">
   <div class="page-title">
     <div class="row">
-      <div class="col-12 col-md-6 order-md-1 order-last">
+      <div class="col-6 col-md-6 float-start">
         <h3>Beranda</h3>
       </div>
+      @if (auth()->user()->role == 'Operator')
+        <div class="col-6 col-md-6">
+          <a href="{{ route('cetak-laporan') }}" class="btn icon icon-left btn-outline-secondary float-end" target="_blank">
+            <i class="fad fa-print"></i> 
+            Cetak Laporan
+          </a>
+        </div>
+      @endif
     </div>
   </div>
   <section class="section mt-4">

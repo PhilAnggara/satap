@@ -19,36 +19,69 @@
     @endif
     <div class="table-responsive">
       <table class="table table-lg">
-        <tbody>
-          <tr>
-            <td>Nama Bangunan</td>
-            <th>{{ $item->nama_bangunan }}</th>
-          </tr>
-          <tr>
-            <td>Jumlah Ruangan</td>
-            <th>{{ $item->jumlah_ruangan }}</th>
-          </tr>
-          <tr>
-            <td>Tanggal Dibangun</td>
-            <th>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</th>
-          </tr>
-          <tr>
-            <td>Kondisi</td>
-            <th>
-              @if ($item->kondisi == 'Baik')
-                <span class="badge bg-light-success">Baik</span>
-              @elseif ($item->kondisi == 'Rusak Ringan')
-                <span class="badge bg-light-warning">Rusak Ringan</span>
-              @else
-                <span class="badge bg-light-danger">Rrusak Berat</span>
-              @endif
-            </th>
-          </tr>
-          <tr>
-            <td>Keterangan</td>
-            <th>{{ $item->keterangan }}</th>
-          </tr>
-        </tbody>
+        @if ($cat == 'bangunan')
+          <tbody>
+            <tr>
+              <td>Nama Bangunan</td>
+              <th>{{ $item->nama_bangunan }}</th>
+            </tr>
+            <tr>
+              <td>Jumlah Ruangan</td>
+              <th>{{ $item->jumlah_ruangan }}</th>
+            </tr>
+            <tr>
+              <td>Tanggal Dibangun</td>
+              <th>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</th>
+            </tr>
+            <tr>
+              <td>Kondisi</td>
+              <th>
+                @if ($item->kondisi == 'Baik')
+                  <span class="badge bg-light-success">Baik</span>
+                @elseif ($item->kondisi == 'Rusak Ringan')
+                  <span class="badge bg-light-warning">Rusak Ringan</span>
+                @else
+                  <span class="badge bg-light-danger">Rrusak Berat</span>
+                @endif
+              </th>
+            </tr>
+            <tr>
+              <td>Keterangan</td>
+              <th>{{ $item->keterangan }}</th>
+            </tr>
+          </tbody>
+        @else
+          <tbody>
+            <tr>
+              <td>Nama Barang</td>
+              <th>{{ $item->nama_barang }}</th>
+            </tr>
+            <tr>
+              <td>Jumlah</td>
+              <th>{{ $item->jumlah }}</th>
+            </tr>
+            <tr>
+              <td>Tanggal Dibangun</td>
+              <th>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</th>
+            </tr>
+            <tr>
+              <td>Kondisi</td>
+              <th>
+                @if ($item->kondisi == 'Baik')
+                  <span class="badge bg-light-success">Baik</span>
+                @elseif ($item->kondisi == 'Rusak Ringan')
+                  <span class="badge bg-light-warning">Rusak Ringan</span>
+                @else
+                  <span class="badge bg-light-danger">Rrusak Berat</span>
+                @endif
+              </th>
+            </tr>
+            <tr>
+              <td>Keterangan</td>
+              <th>{{ $item->keterangan }}</th>
+            </tr>
+          </tbody>
+        @endif
       </table>
     </div>
   @else
