@@ -85,40 +85,6 @@ class MainController extends Controller
         return redirect()->back()->with('success', 'Gambar Berhasil Dihapus!');
     }
 
-    public function cetakLaporan()
-    {
-        $date = Carbon::now()->isoFormat('MMMM YYYY');
-        $now = Carbon::now()->isoFormat('D MMMM Y');
-        $title = 'Laporan Inventaris Barang';
-
-        $bangunan = Bangunan::all();
-        $meubel = Meubel::all();
-        $elektronik = Elektronik::all();
-        $buku = Buku::all();
-        $laboratorium = Laboratorium::all();
-        $matematika = Matematika::all();
-        $olahraga = Olahraga::all();
-        $kesenian = Kesenian::all();
-
-        $items = collect($meubel);
-
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('pages.pdf.laporan', [
-            'title' => $title,
-            'items' => $items,
-            'bangunan' => $bangunan,
-            'meubel' => $meubel,
-            'elektronik' => $elektronik,
-            'buku' => $buku,
-            'laboratorium' => $laboratorium,
-            'matematika' => $matematika,
-            'olahraga' => $olahraga,
-            'kesenian' => $kesenian,
-        ]);
-
-        return $pdf->stream($title);
-    }
-
     public function generateBarcodeManualy($kode)
     {
         $generator = new Picqer\Barcode\BarcodeGeneratorPNG();

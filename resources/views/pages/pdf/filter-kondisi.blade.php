@@ -8,11 +8,10 @@
 
   <h1 style="text-align:center; margin-bottom: 20pt">
     <span style="font-family:Arial, Helvetica, sans-serif; font-weight:bold; color:#000000">
-      Laporan Inventaris Barang
+      {{ $title }}
     </span>
   </h1>
 
-  {{-- <p class="title">Meubel</p> --}}
   <table class="my-table">
     <thead>
       <tr>
@@ -20,8 +19,6 @@
         <th>Kode Barang</th>
         <th>Nama Barang</th>
         <th>Tanggal Pembelian</th>
-        {{-- <th>Jumlah</th> --}}
-        <th width="100px">Kondisi</th>
         <th>Keterangan</th>
       </tr>
     </thead>
@@ -35,8 +32,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_bangunan }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah_ruangan }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -47,8 +42,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -59,8 +52,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -71,8 +62,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -83,8 +72,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -95,8 +82,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -107,8 +92,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
@@ -119,8 +102,6 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
-          <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}

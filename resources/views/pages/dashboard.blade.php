@@ -10,10 +10,31 @@
       </div>
       @if (auth()->user()->role == 'Operator')
         <div class="col-6 col-md-6">
-          <a href="{{ route('cetak-laporan') }}" class="btn icon icon-left btn-outline-secondary float-end" target="_blank">
+          {{-- <a href="{{ route('cetak-laporan') }}" class="btn icon icon-left btn-outline-secondary float-end" target="_blank">
             <i class="fad fa-print"></i> 
             Cetak Laporan
-          </a>
+          </a> --}}
+          <div class="dropdown">
+            <a class="btn icon icon-left btn-outline-secondary float-end dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fad fa-print"></i> 
+              Cetak Laporan
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="{{ route('laporan-keseluruhan') }}" target="_blank">Laporan keseluruhan</a>
+              </li>
+              <li>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#filterKondisi">
+                  Filter kondisi
+                </button>
+              </li>
+              <li>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#filterTanggalPembelian">
+                  Filter tanggal pembelian
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       @endif
     </div>
@@ -23,6 +44,13 @@
     @if(session('success'))
       <div class="alert alert-success alert-dismissible show fade">
         {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+    
+    @if(session('gagal'))
+      <div class="alert alert-danger alert-dismissible show fade">
+        {{ session('gagal') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif
@@ -123,6 +151,7 @@
 
   </section>
 </div>
+@include('includes.modals.laporan-modal')
 @endsection
 
 @push('addon-style')

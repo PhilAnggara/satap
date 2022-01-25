@@ -6,11 +6,16 @@
   
   @include('includes.pdf-header')
 
-  <h1 style="text-align:center; margin-bottom: 20pt">
+  <h1 style="text-align:center">
     <span style="font-family:Arial, Helvetica, sans-serif; font-weight:bold; color:#000000">
       Laporan Inventaris Barang
     </span>
   </h1>
+  <h4 style="text-align:center; margin-bottom: 20pt">
+    <span style="font-family:Arial, Helvetica, sans-serif; color:#000000">
+      Tanggal Pembelian : {{ $awal }} - {{ $akhir }}
+    </span>
+  </h4>
 
   {{-- <p class="title">Meubel</p> --}}
   <table class="my-table">
