@@ -24,12 +24,27 @@
       </div>
     </div>
   </div>
+  
+  @include('includes.modals.password-modal')
 
   @stack('prepend-script')
   @include('includes.script')
   <script src="{{ url('js/app.js') }}"></script>
   @livewireScripts
   @stack('addon-script')
+  
+  @error('current_password')
+    <script type="text/javascript">
+      var myModal = new bootstrap.Modal(document.getElementById('gantiPassword'));
+      myModal.show()
+    </script>
+  @enderror
+  @error('password')
+    <script type="text/javascript">
+      var myModal = new bootstrap.Modal(document.getElementById('gantiPassword'));
+      myModal.show()
+    </script>
+  @enderror
 
 </body>
 </html>

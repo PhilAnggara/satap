@@ -19,6 +19,14 @@
     </div>
   </div>
   <section class="section mt-4">
+    
+    @if(session('success'))
+      <div class="alert alert-success alert-dismissible show fade">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+    
     <div class="row">
       <div class="col-12 col-lg-3 col-md-6">
         <div class="card">

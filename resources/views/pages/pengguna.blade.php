@@ -21,6 +21,13 @@
       </div>
     @endif
     
+    @error('passwordPengguna')
+      <div class="alert alert-danger alert-dismissible show fade">
+        {{ $message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @enderror
+    
     @if(session('success'))
       <div class="alert alert-success alert-dismissible show fade">
         {{ session('success') }}
@@ -81,13 +88,18 @@
                     @endif
                   </td>
                   <td>
-                    <a href="#" id="hapusUser" class="hapus-user btn icon btn-light" data-id="{{ $user->id }}" data-name="{{ $user->name }}">
-                      <i class="far fa-user-times" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Pengguna"></i>
-                    </a>
-                    <form action="{{ route('pengguna.destroy', $user->id) }}" id="hapus-user-{{ $user->id }}" method="POST">
-                      @method('delete')
-                      @csrf
-                    </form>
+                    <div class="btn-group" role="group">
+                      <a href="#" id="hapusUser" class="hapus-user btn icon btn-light" data-id="{{ $user->id }}" data-name="{{ $user->name }}">
+                        <i class="far fa-user-times" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Pengguna"></i>
+                      </a>
+                      <form action="{{ route('pengguna.destroy', $user->id) }}" id="hapus-user-{{ $user->id }}" method="POST">
+                        @method('delete')
+                        @csrf
+                      </form>
+                      <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#gantiPassword-{{ $user->id }}">
+                        <i class="far fa-lock-alt text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Ganti Password"></i>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               @endforeach
@@ -98,6 +110,7 @@
     </div>
   </section>
 </div>
+@include('includes.modals.pengguna-modal')
 @endsection
 
 @push('addon-script')

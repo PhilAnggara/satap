@@ -34,11 +34,17 @@
               <h6 class="dropdown-header">Halo, {{ auth()->user()->name }}!</h6>
             </li>
             <li>
+              <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gantiPassword">
+                <i class="icon-mid bi bi-lock me-2"></i>
+                Ganti Password
+              </button>
+            </li>
+            {{-- <li>
               <a class="dropdown-item" href="{{ route('dashboard') }}">
                 <i class="icon-mid bi bi-person me-2"></i>
                 Profil Saya
               </a>
-            </li>
+            </li> --}}
               <hr class="dropdown-divider">
             </li>
             <li>

@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bangunan;
-use App\Models\Buku;
-use App\Models\Elektronik;
-use App\Models\Kesenian;
-use App\Models\Laboratorium;
-use App\Models\Matematika;
-use App\Models\Meubel;
-use App\Models\Olahraga;
-use App\Models\User;
+use Picqer;
 use Carbon\Carbon;
+use App\Models\Buku;
+use App\Models\User;
+use App\Models\Meubel;
+use App\Models\Bangunan;
+use App\Models\Kesenian;
+use App\Models\Olahraga;
+use App\Models\Elektronik;
+use App\Models\Matematika;
+use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Picqer;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\Validation\ValidationException;
 
 class MainController extends Controller
 {
@@ -119,5 +123,38 @@ class MainController extends Controller
         file_put_contents('storage/gambar/example/'.$kode.'.png', $generator->getBarcode($kode, $generator::TYPE_CODE_128, 4, 300));
 
         return back();
+    }
+
+    public function gantiPassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        if (Hash::check($request->current_password, auth()->user()->password)) {
+            $user = User::find(auth()->user()->id);
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            return redirect()->back()->with('success', 'Kata sandi anda berhasil diubah');
+        }
+
+        throw ValidationException::withMessages([
+            'current_password' => 'Kata sandi anda salah'
+        ]);
+    }
+    
+    public function gantiPasswordPengguna(Request $request, $id)
+    {
+        $request->validate([
+            'passwordPengguna' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::find($id);
+        $user->password = Hash::make($request->passwordPengguna);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Kata sandi untuk '. $user->name .' berhasil diubah');
     }
 }

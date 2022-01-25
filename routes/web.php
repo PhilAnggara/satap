@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
   Route::get('cetak-laporan', [MainController::class, 'cetakLaporan'])->name('cetak-laporan');
   Route::get('generate/{kode}', [MainController::class, 'generateBarcodeManualy']);
 
+  Route::put('ganti-password', [MainController::class, 'gantiPassword'])->name('ganti-password');
+  Route::post('ganti-password-pengguna/{id}', [MainController::class, 'gantiPasswordPengguna'])->name('ganti-password-pengguna');
+
   Route::middleware('is.verified')->group(function () {
 
     Route::resource('bangunan', BangunanController::class);
