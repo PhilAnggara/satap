@@ -18,7 +18,7 @@ class CreateBangunanTable extends Migration
             $table->string('kode');
             $table->string('barcode')->nullable();
             $table->string('nama_bangunan');
-            $table->integer('jumlah_ruangan');
+            // $table->integer('jumlah_ruangan');
             $table->text('gambar')->nullable();
             $table->date('tanggal');
             $table->string('kondisi');

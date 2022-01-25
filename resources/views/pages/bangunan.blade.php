@@ -42,7 +42,7 @@
             <tr>
               <th class="text-center">Kode</th>
               <th class="text-center">Nama Bangunan</th>
-              <th class="text-center">Jumlah Ruangan</th>
+              {{-- <th class="text-center">Jumlah Ruangan</th> --}}
               <th class="text-center">Tanggal Berdiri</th>
               <th class="text-center">Kondisi</th>
               <th class="text-center">Keterangan</th>
@@ -61,7 +61,7 @@
                   {{ $item->kode }}
                 </td>
                 <td>{{ $item->nama_bangunan }}</td>
-                <td>{{ $item->jumlah_ruangan }}</td>
+                {{-- <td>{{ $item->jumlah_ruangan }}</td> --}}
                 <td>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</td>
                 <td>
                   @if ($item->kondisi == 'Baik')

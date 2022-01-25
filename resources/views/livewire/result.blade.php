@@ -25,10 +25,10 @@
               <td>Nama Bangunan</td>
               <th>{{ $item->nama_bangunan }}</th>
             </tr>
-            <tr>
+            {{-- <tr>
               <td>Jumlah Ruangan</td>
               <th>{{ $item->jumlah_ruangan }}</th>
-            </tr>
+            </tr> --}}
             <tr>
               <td>Tanggal Dibangun</td>
               <th>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</th>
@@ -56,10 +56,10 @@
               <td>Nama Barang</td>
               <th>{{ $item->nama_barang }}</th>
             </tr>
-            <tr>
+            {{-- <tr>
               <td>Jumlah</td>
               <th>{{ $item->jumlah }}</th>
-            </tr>
+            </tr> --}}
             <tr>
               <td>Tanggal Dibangun</td>
               <th>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</th>

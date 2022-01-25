@@ -18,7 +18,7 @@ class CreateMeubelTable extends Migration
             $table->string('kode');
             $table->string('barcode')->nullable();
             $table->string('nama_barang');
-            $table->integer('jumlah');
+            // $table->integer('jumlah');
             $table->text('gambar')->nullable();
             $table->date('tanggal');
             $table->string('kondisi');

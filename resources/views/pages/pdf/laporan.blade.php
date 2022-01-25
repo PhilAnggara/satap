@@ -20,69 +20,70 @@
         <th>Kode Barang</th>
         <th>Nama Barang</th>
         <th>Tanggal Pembelian</th>
-        <th>Jumlah</th>
-        <th>Kondisi</th>
+        {{-- <th>Jumlah</th> --}}
+        <th width="100px">Kondisi</th>
         <th>Keterangan</th>
       </tr>
     </thead>
     <tbody>
-      {{-- @foreach ($items as $item)
-        <tr>
-          <td class="text-center">1</td>
-          <td class="text-center">{{ $item->kode }}</td>
-          <td>{{ $item->nama_barang }}</td>
-          <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
-          <td class="text-center">{{ $item->kondisi }}</td>
-          <td class="text-center">{{ $item->keterangan }}</td>
-        </tr>
-      @endforeach --}}
       @php
         $no = 1;
       @endphp
-      {{-- @foreach ($meubel as $item)
+      @foreach ($bangunan as $item)
         <tr>
           <td class="text-center">{{ $no }}</td>
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah_ruangan }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
-      @endforeach --}}
+      @endforeach
+      @foreach ($meubel as $item)
+        <tr>
+          <td class="text-center">{{ $no }}</td>
+          <td class="text-center">{{ $item->kode }}</td>
+          <td>{{ $item->nama_barang }}</td>
+          <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
+          <td class="text-center">{{ $item->kondisi }}</td>
+          <td class="text-center">{{ $item->keterangan }}</td>
+        </tr>
+        {{ $no++ }}
+      @endforeach
       @foreach ($elektronik as $item)
         <tr>
           <td class="text-center">{{ $no }}</td>
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
       @endforeach
-      {{-- @foreach ($buku as $item)
+      @foreach ($buku as $item)
         <tr>
           <td class="text-center">{{ $no }}</td>
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
         {{ $no++ }}
-      @endforeach --}}
+      @endforeach
       @foreach ($laboratorium as $item)
         <tr>
           <td class="text-center">{{ $no }}</td>
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
@@ -94,7 +95,7 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
@@ -106,7 +107,7 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>
@@ -118,7 +119,7 @@
           <td class="text-center">{{ $item->kode }}</td>
           <td>{{ $item->nama_barang }}</td>
           <td class="text-center">{{ Carbon\Carbon::parse($item->tanggal )->isoFormat('D MMMM Y') }}</td>
-          <td class="text-center">{{ $item->jumlah }}</td>
+          {{-- <td class="text-center">{{ $item->jumlah }}</td> --}}
           <td class="text-center">{{ $item->kondisi }}</td>
           <td class="text-center">{{ $item->keterangan }}</td>
         </tr>

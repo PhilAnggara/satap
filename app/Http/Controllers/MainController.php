@@ -91,6 +91,7 @@ class MainController extends Controller
         $now = Carbon::now()->isoFormat('D MMMM Y');
         $title = 'Laporan Inventaris Barang';
 
+        $bangunan = Bangunan::all();
         $meubel = Meubel::all();
         $elektronik = Elektronik::all();
         $buku = Buku::all();
@@ -105,6 +106,7 @@ class MainController extends Controller
         $pdf->loadView('pages.pdf.laporan', [
             'title' => $title,
             'items' => $items,
+            'bangunan' => $bangunan,
             'meubel' => $meubel,
             'elektronik' => $elektronik,
             'buku' => $buku,

@@ -47,10 +47,10 @@
             <input type="text" class="form-control" name="nama_bangunan" id="nama_bangunan" required>
           </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="jumlah_ruangan">Jumlah Ruangan</label>
             <input type="number" class="form-control" name="jumlah_ruangan" id="jumlah_ruangan" required>
-          </div>
+          </div> --}}
 
           <div class="form-group">
             <label for="tanggal">Tanggal Berdiri</label>
@@ -201,10 +201,10 @@ aria-hidden="true">
             <input type="text" class="form-control" name="nama_bangunan" id="nama_bangunan" value="{{ $item->nama_bangunan }}" required>
           </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="jumlah_ruangan">Jumlah Ruangan</label>
             <input type="number" class="form-control" name="jumlah_ruangan" id="jumlah_ruangan" value="{{ $item->jumlah_ruangan }}" required>
-          </div>
+          </div> --}}
 
           <div class="form-group">
             <label for="tanggal">Tanggal Berdiri</label>

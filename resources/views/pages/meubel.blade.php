@@ -43,7 +43,7 @@
               <th class="text-center">Kode</th>
               <th class="text-center">Nama Barang</th>
               <th class="text-center">Tanggal Pembelian</th>
-              <th class="text-center">Jumlah</th>
+              {{-- <th class="text-center">Jumlah</th> --}}
               <th class="text-center">Kondisi</th>
               <th class="text-center">Keterangan</th>
               @if (auth()->user()->role == 'Operator' || auth()->user()->role == 'Tata Usaha')
@@ -62,7 +62,7 @@
                 </td>
                 <td>{{ $item->nama_barang }}</td>
                 <td>{{ Carbon\Carbon::parse($item->tanggal)->isoFormat('D MMM YYYY') }}</td>
-                <td>{{ $item->jumlah }}</td>
+                {{-- <td>{{ $item->jumlah }}</td> --}}
                 <td>
                   @if ($item->kondisi == 'Baik')
                     <span class="badge bg-light-success">Baik</span>

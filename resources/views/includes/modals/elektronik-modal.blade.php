@@ -43,10 +43,10 @@
             <input type="date" class="form-control" name="tanggal" id="tanggal" required>
           </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="jumlah">Jumlah</label>
             <input type="number" class="form-control" name="jumlah" id="jumlah" required>
-          </div>
+          </div> --}}
 
           <div class="form-group">
             <label for="kondisi">Kondisi</label>
@@ -189,10 +189,10 @@ aria-hidden="true">
             <input type="date" class="form-control" name="tanggal" id="tanggal" value="{{ $item->tanggal }}" required>
           </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="jumlah">Jumlah</label>
             <input type="number" class="form-control" name="jumlah" id="jumlah" value="{{ $item->jumlah }}" required>
-          </div>
+          </div> --}}
 
           <div class="form-group">
             <label for="kondisi">Kondisi</label>
