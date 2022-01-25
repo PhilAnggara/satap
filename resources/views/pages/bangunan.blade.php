@@ -8,7 +8,7 @@
       <div class="col-6 col-md-6 float-start">
         <h3>Bangunan</h3>
       </div>
-      @if (auth()->user()->role != 'Umum')
+      @if (auth()->user()->role == 'Operator' || auth()->user()->role == 'Tata Usaha')
         <div class="col-6 col-md-6">
           <button class="btn icon icon-left btn-outline-success float-end" data-bs-toggle="modal" data-bs-target="#tambah">
             <i class="fad fa-plus-circle"></i> 
@@ -46,7 +46,7 @@
               <th class="text-center">Tanggal Berdiri</th>
               <th class="text-center">Kondisi</th>
               <th class="text-center">Keterangan</th>
-              @if (auth()->user()->role != 'Umum')
+              @if (auth()->user()->role == 'Operator' || auth()->user()->role == 'Tata Usaha')
                 <th class="text-center"></th>
               @endif
             </tr>
@@ -73,7 +73,7 @@
                   @endif
                 </td>
                 <td>{{ $item->keterangan }}</td>
-                @if (auth()->user()->role != 'Umum')
+                @if (auth()->user()->role == 'Operator' || auth()->user()->role == 'Tata Usaha')
                   <td>
                     <div class="btn-group" role="group">
                       <button type="button" class="btn icon btn-light" data-bs-toggle="modal" data-bs-target="#gambar-{{ $item->id }}">

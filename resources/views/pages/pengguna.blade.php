@@ -59,7 +59,7 @@
                     @elseif ($user->role == 'Tata Usaha')
                       <span class="badge bg-light-info">Tata Usaha</span>
                     @else
-                      {{-- <span class="badge bg-light-primary">-</span> --}}
+                      <span class="badge bg-light-primary">Umum</span>
                     @endif
                   </td>
                   <td>
